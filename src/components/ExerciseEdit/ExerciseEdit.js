@@ -43,7 +43,7 @@ const ExerciseEdit = props => {
   }
 
   if (updated) {
-    return <Redirect to={`exercises/${props.match.params.id}`} />
+    return <Redirect to={`/exercises/${props.match.params.id}`} />
   }
 
   return (
