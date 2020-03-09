@@ -1,3 +1,7 @@
+# Workout Application
+
+An application to help track workouts and randomize a specific group of exercises when you just aren't sure what to do.
+
 ### User Stories:
 
 -   As a user I want to be able to sign up
@@ -32,3 +36,16 @@
 -   Sets
 -   Reps
 -   Categories involved ? (Array maybe? or joins table)
+
+### Wireframe:
+
+##### Homepage:
+![Homepage](https://media.git.generalassemb.ly/user/24794/files/04da2900-61e6-11ea-9c09-68dc2a39e9a6)
+
+##### Signed In:
+![Sign-in](https://media.git.generalassemb.ly/user/24794/files/11f71800-61e6-11ea-92f3-56888a0b6ab3)
+
+
+### ERD:
+
+![image](https://media.git.generalassemb.ly/user/24794/files/04409300-61e4-11ea-9728-c636b776e416)
