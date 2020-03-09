@@ -60,7 +60,7 @@ class App extends Component {
             <Exercises msgAlert={this.msgAlert} user={user} />
           )} />
           <AuthenticatedRoute user={user} exact path='/exercises/:id' render={({ match }) => (
-            <Exercise msgAlert={this.msgAlert} user={user} match={match}/>
+            <Exercise msgAlert={this.msgAlert} user={user} match={match} />
           )} />
         </main>
       </Fragment>

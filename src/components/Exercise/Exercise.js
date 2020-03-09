@@ -12,7 +12,7 @@ const Exercise = props => {
 
   useEffect(() => {
     axios(`${apiUrl}/exercises/${props.match.params.id}`)
-      .then(res => setExercise(res.data.movie))
+      .then(res => setExercise(res.data.exercise))
       .catch(console.error)
   }, [])
 
