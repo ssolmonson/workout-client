@@ -11,6 +11,7 @@ import ChangePassword from '../ChangePassword/ChangePassword'
 import Exercises from '../Exercises/Exercises'
 import Exercise from '../Exercise/Exercise'
 import ExerciseEdit from '../ExerciseEdit/ExerciseEdit'
+import ExerciseCreate from '../ExerciseCreate/ExerciseCreate'
 
 class App extends Component {
   constructor () {
@@ -65,6 +66,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} exact path='/exercises/:id/edit' render={({ match }) => (
             <ExerciseEdit msgAlert={this.msgAlert} user={user} match={match} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/exercises-create' render={() => (
+            <ExerciseCreate msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>
