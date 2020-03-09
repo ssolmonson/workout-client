@@ -3,14 +3,20 @@ import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
 import apiUrl from '../../apiConfig'
-// import MovieForm from '../shared/MovieForm'
+import ExerciseForm from '../ExerciseForm/ExerciseForm'
 
 const ExerciseEdit = props => {
   const [exercise, setExercise] = useState({ title: '', description: '', category: '' })
   const [updated, setUpdated] = useState(false)
 
   useEffect(() => {
-    axios(`${apiUrl}/exercises/${props.match.params.id}`)
+    axios({
+      url: `${apiUrl}/exercises/${props.match.params.id}`,
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${props.user.token}`
+      }
+    })
       .then(res => setExercise(res.data.exercise))
       .catch(console.error)
   }, [])
@@ -27,6 +33,9 @@ const ExerciseEdit = props => {
     axios({
       url: `${apiUrl}/exercises/${props.match.params.id}`,
       method: 'PATCH',
+      headers: {
+        Authorization: `Bearer ${props.user.token}`
+      },
       data: { exercise }
     })
       .then(res => setUpdated(true))
@@ -39,9 +48,12 @@ const ExerciseEdit = props => {
 
   return (
     <div>
-      {exercise}
-      {handleChange}
-      {handleSubmit}
+      <ExerciseForm
+        exercise={exercise}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        cancelPath={`/exercises/${props.match.params.id}`}
+      />
     </div>
   )
 }

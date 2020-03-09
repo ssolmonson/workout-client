@@ -11,7 +11,13 @@ const Exercise = props => {
   // console.log(props.match)
 
   useEffect(() => {
-    axios(`${apiUrl}/exercises/${props.match.params.id}`)
+    axios({
+      url: `${apiUrl}/exercises/${props.match.params.id}`,
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${props.user.token}`
+      }
+    })
       .then(res => setExercise(res.data.exercise))
       .catch(console.error)
   }, [])
@@ -19,7 +25,10 @@ const Exercise = props => {
   const destroy = () => {
     axios({
       url: `${apiUrl}/exercises/${props.match.params.id}`,
-      method: 'DELETE'
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${props.user.token}`
+      }
     })
       .then(() => setDeleted(true))
       .catch(console.error)
