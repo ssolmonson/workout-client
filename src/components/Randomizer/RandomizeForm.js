@@ -15,24 +15,8 @@ const categoryData = [
 ]
 
 // The select element maps over the array to create entries for the drop down list
-const ExerciseForm = ({ exercise, handleChange, handleSubmit, cancelPath }) => (
+const RandomizeForm = ({ exercise, handleChange, handleSubmit, cancelPath }) => (
   <form onSubmit={handleSubmit}>
-    <label>Exercise</label>
-    <input
-      name='title'
-      placeholder='Name of Exercise'
-      value={exercise.title}
-      onChange={handleChange}
-    />
-
-    <label>Description</label>
-    <input
-      name='description'
-      placeholder='Enter a description'
-      value={exercise.description}
-      onChange={handleChange}
-    />
-
     <label>Category</label>
     <select
       name='category'
@@ -52,4 +36,4 @@ const ExerciseForm = ({ exercise, handleChange, handleSubmit, cancelPath }) => (
   </form>
 )
 
-export default ExerciseForm
+export default RandomizeForm

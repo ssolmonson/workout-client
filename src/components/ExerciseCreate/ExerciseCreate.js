@@ -5,8 +5,9 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import ExerciseForm from '../ExerciseForm/ExerciseForm'
 
+// Utilizing the Exercise Form, this will handle sending a POST request to create a Exercise
 const ExerciseCreate = props => {
-  const [exercise, setExercise] = useState({ title: '', description: '', category: '' })
+  const [exercise, setExercise] = useState({ title: '', description: '', category: 'Legs' })
   const [createdExerciseId, setCreatedExerciseId] = useState(null)
 
   const handleChange = event => {
@@ -18,6 +19,7 @@ const ExerciseCreate = props => {
   const handleSubmit = event => {
     event.preventDefault()
 
+    // console.log(event)
     axios({
       url: `${apiUrl}/exercises`,
       method: 'POST',
