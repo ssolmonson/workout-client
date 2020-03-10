@@ -44,15 +44,15 @@ const Randomizer = props => {
 
     // setCategory(exercise => ({ ...exercise, [event.target.name]: event.target.value }))
     setCategory(event.target.value)
-    setTimeout(() => console.log(category), 1000)
+    // setTimeout(() => console.log(category), 1000)
   }
 
   const categoriesJsx = exercises.map(exercise => (
     <li key={exercise.id}>
       <ul>
-        Exercise: {exercise.title}
-        Description: {exercise.description}
-        Category: {exercise.category}
+        <p>Exercise: {exercise.title}</p>
+        <p>Description: {exercise.description}</p>
+        <p>Category: {exercise.category}</p>
       </ul>
     </li>
   ))
