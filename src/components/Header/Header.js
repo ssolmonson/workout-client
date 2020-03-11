@@ -9,6 +9,7 @@ const authenticatedOptions = (
     <Nav.Link href="#exercises">Exercises List</Nav.Link>
     <Nav.Link href="#exercises-create">Create an Exercise</Nav.Link>
     <Nav.Link href="#randomize">Radomize Your Workout</Nav.Link>
+    <Nav.Link href="#workouts">Workouts</Nav.Link>
   </Fragment>
 )
 

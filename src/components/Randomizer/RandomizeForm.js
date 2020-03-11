@@ -29,7 +29,7 @@ const RandomizeForm = ({ exercise, handleChange, handleSubmit, cancelPath }) => 
       })}
     </select>
 
-    <button type='submit'>Submit</button>
+    <button type='submit'>Randomize!</button>
     <Link to={cancelPath}>
       <button>Cancel</button>
     </Link>

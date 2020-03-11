@@ -13,6 +13,7 @@ import Exercise from '../Exercise/Exercise'
 import ExerciseEdit from '../ExerciseEdit/ExerciseEdit'
 import ExerciseCreate from '../ExerciseCreate/ExerciseCreate'
 import Randomizer from '../Randomizer/Randomizer'
+import Workouts from '../Workouts/Workouts'
 
 class App extends Component {
   constructor () {
@@ -73,6 +74,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} exact path='/randomize' render={({ match }) => (
             <Randomizer msgAlert={this.msgAlert} user={user} match={match} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/workouts' render={() => (
+            <Workouts msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>

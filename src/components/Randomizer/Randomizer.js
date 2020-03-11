@@ -71,6 +71,9 @@ const Randomizer = props => {
         <h4>Exercises</h4>
         <ul>{categoriesJsx}</ul>
       </div>
+      <div>
+        <h4>Save Workout</h4>
+      </div>
     </div>
   )
 }
