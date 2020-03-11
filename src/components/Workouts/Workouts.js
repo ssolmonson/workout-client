@@ -23,12 +23,19 @@ const Workouts = props => {
   // const exerciseTitle = workouts.map(workout => (
   //   <p key ={workout.id}>{workout.exercises.title}</p>
   // ))
+  // console.log(workouts)
+
+  if (workouts.length === 0) {
+    return <p>No workouts entered. Please create a workout first.</p>
+  }
+
   const workoutsJsx = workouts.map(workout => (
     <li key={workout.id}>
+      <p>{workout.workout_date}</p>
       {workout.exercises.map(exercise => (
         <div key={exercise.id}>{exercise.title}</div>
       ))}
-      <p>{workout.workout_date}</p>
+      <p></p>
     </li>
   ))
 

@@ -14,6 +14,7 @@ import ExerciseEdit from '../ExerciseEdit/ExerciseEdit'
 import ExerciseCreate from '../ExerciseCreate/ExerciseCreate'
 import Randomizer from '../Randomizer/Randomizer'
 import Workouts from '../Workouts/Workouts'
+import WorkoutCreate from '../Workouts/WorkoutCreate'
 
 class App extends Component {
   constructor () {
@@ -77,6 +78,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} exact path='/workouts' render={() => (
             <Workouts msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/workouts-create' render={() => (
+            <WorkoutCreate msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>
