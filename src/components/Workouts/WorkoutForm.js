@@ -1,11 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
-// Defined values for the category key
-// Keeps the key consistent, and will be used for graph data
-
-// The select element maps over the array to create entries for the drop down list
-const WorkoutForm = ({ workout, handleChange, handleSubmit, cancelPath }) => (
+const WorkoutForm = ({ workout, handleChange, handleSubmit }) => (
   <form onSubmit={handleSubmit}>
     <label>Workout Completed On</label>
     <input
@@ -16,9 +12,9 @@ const WorkoutForm = ({ workout, handleChange, handleSubmit, cancelPath }) => (
     />
 
     <button type='submit'>Save Workout</button>
-    <Link to={cancelPath}>
+    {/* <Link to={cancelPath}>
       <button>Cancel</button>
-    </Link>
+    </Link> */}
   </form>
 )
 

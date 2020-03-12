@@ -6,13 +6,20 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import RandomizeForm from './RandomizeForm'
 // import TrainingForm from '../Trainings/TrainingForm'
-// import WorkoutForm from '../Workouts/WorkoutForm'
+import WorkoutForm from '../Workouts/WorkoutForm'
 
 const Randomizer = props => {
   // define const to be used
   const [exercises, setExercises] = useState([])
 
   const [category, setCategory] = useState('Legs')
+
+  const [workout, setWorkout] = useState({ workout_date: '' })
+
+  // const [workoutId, setWorkoutId] = useState(null)
+
+  // const exerciseId = []
+
   // const []
   // send an axios get request
   // useEffect(() => {
@@ -39,6 +46,59 @@ const Randomizer = props => {
     })
       .then(res => setExercises(res.data.exercises))
       .catch(console.error)
+  }
+
+  const handleCreate = event => {
+    event.preventDefault()
+
+    let workoutId
+    // axios call to create the workout
+    axios({
+      url: `${apiUrl}/workouts`,
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${props.user.token}`
+      },
+      data: { workout }
+    })
+      // .then(res => console.log(res))
+      .then(res => {
+        workoutId = res.data.workout.id
+      })
+      // .then(console.log(workoutId))
+    // in .then
+    // loop through the exercises cuz we want their ids
+      .then(() => {
+        const ajaxArray = exercises.map(exercise => {
+        // exerciseId.push(exercise.id)
+          return axios({
+            url: `${apiUrl}/trainings`,
+            method: 'POST',
+            headers: {
+              Authorization: `Bearer ${props.user.token}`
+            },
+            data: { training: { workout_id: workoutId, exercise_id: exercise.id } }
+          })
+        })
+        return Promise.all(ajaxArray)
+      })
+    // use the workout id and the exercise to POST trainings
+      // .then(axios({
+      //   url: `${apiUrl}/trainings`,
+      //   method: 'POST',
+      //   headers: {
+      //     Authorization: `Bearer ${props.user.token}`
+      //   },
+      //   data: { workoutId, exerciseId }
+      // }))
+      .catch(console.error)
+  }
+
+  const handleWorkChange = event => {
+    event.persist()
+
+    setWorkout(workout => ({ ...workout, [event.target.name]: event.target.value }))
+    // console.log(workout)
   }
 
   const handleChange = event => {
@@ -74,7 +134,13 @@ const Randomizer = props => {
         <h4>Exercises</h4>
         <ul>{categoriesJsx}</ul>
       </div>
-      <div></div>
+      <div>
+        <WorkoutForm
+          workout={workout}
+          handleChange={handleWorkChange}
+          handleSubmit={handleCreate}
+        />
+      </div>
     </div>
   )
 }
