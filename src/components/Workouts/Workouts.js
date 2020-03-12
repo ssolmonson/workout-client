@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 import apiUrl from '../../apiConfig'
+// import WorkoutCreate from './WorkoutCreate'
 
 const Workouts = props => {
   const [workouts, setWorkouts] = useState([])
@@ -41,10 +42,15 @@ const Workouts = props => {
 
   return (
     <div>
-      <h4>Workouts</h4>
-      <ul>
-        {workoutsJsx}
-      </ul>
+      <div>
+        <h4>Workouts</h4>
+        <ul>
+          {workoutsJsx}
+        </ul>
+      </div>
+      <div>
+        {/* <WorkoutCreate /> */}
+      </div>
     </div>
   )
 }

@@ -5,6 +5,7 @@ import axios from 'axios'
 
 import apiUrl from '../../apiConfig'
 import RandomizeForm from './RandomizeForm'
+// import TrainingForm from '../Trainings/TrainingForm'
 // import WorkoutForm from '../Workouts/WorkoutForm'
 
 const Randomizer = props => {
@@ -51,10 +52,11 @@ const Randomizer = props => {
   const categoriesJsx = exercises.map(exercise => (
     <li key={exercise.id}>
       <ul>
-        <p>Exercise: {exercise.title}</p>
-        <p>Description: {exercise.description}</p>
-        <p>Category: {exercise.category}</p>
-      </ul>
+        Exercise: {exercise.title}<br />
+        Description: {exercise.description}<br />
+        Category: {exercise.category}<br />
+      </ul><br />
+      {/* <TrainingForm /> */}
     </li>
   ))
 

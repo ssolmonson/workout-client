@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 import apiUrl from '../../apiConfig'
+// import ExerciseCreate from '../ExerciseCreate/ExerciseCreate'
 
-const Exercises = props => {
+const Exercises = (props, { match }) => {
   const [exercises, setExercises] = useState([])
 
   useEffect(() => {
@@ -21,10 +22,17 @@ const Exercises = props => {
 
   return (
     <div>
-      <h4>Exercises</h4>
-      <ul>
-        {exercisesJsx}
-      </ul>
+      <div>
+        <h4>Exercises</h4>
+        <ul>
+          {exercisesJsx}
+        </ul>
+      </div>
+      <div>
+        <button>
+          <Link to='/exercises-create'>Create an Exercise</Link>
+        </button>
+      </div>
     </div>
   )
 }
