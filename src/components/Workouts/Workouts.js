@@ -1,6 +1,6 @@
 // Will grab all workouts for a the user
 import React, { useState, useEffect } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 import apiUrl from '../../apiConfig'
@@ -32,7 +32,8 @@ const Workouts = props => {
 
   const workoutsJsx = workouts.map(workout => (
     <li key={workout.id}>
-      <p>{workout.workout_date}</p>
+      <Link to={`/workouts/${workout.id}`}>{workout.workout_date}</Link>
+      {/* }<p>{workout.workout_date}</p> */}
       {workout.exercises.map(exercise => (
         <div key={exercise.id}>{exercise.title}</div>
       ))}

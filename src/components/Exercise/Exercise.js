@@ -40,7 +40,7 @@ const Exercise = props => {
 
   if (deleted) {
     return <Redirect to={
-      { pathname: '/', state: { msg: 'Exercise deleted successfully!' } }
+      { pathname: '/exercises', state: { msg: 'Exercise deleted successfully!' } }
     } />
   }
 
