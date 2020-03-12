@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 // Defined values for the category key
 // Keeps the key consistent, and will be used for graph data
@@ -30,9 +30,9 @@ const RandomizeForm = ({ exercise, handleChange, handleSubmit, cancelPath }) => 
     </select>
 
     <button type='submit'>Randomize!</button>
-    <Link to={cancelPath}>
+    {/* <Link to={cancelPath}>
       <button>Cancel</button>
-    </Link>
+    </Link> */}
   </form>
 )
 

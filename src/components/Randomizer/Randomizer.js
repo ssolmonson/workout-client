@@ -10,11 +10,12 @@ import WorkoutForm from '../Workouts/WorkoutForm'
 
 const Randomizer = props => {
   // define const to be used
+
   const [exercises, setExercises] = useState([])
 
   const [category, setCategory] = useState('Legs')
 
-  const [workout, setWorkout] = useState({ workout_date: '' })
+  const [workout, setWorkout] = useState({ workout_date: '2020-01-01' })
 
   // const [workoutId, setWorkoutId] = useState(null)
 
@@ -127,7 +128,7 @@ const Randomizer = props => {
           exercise={exercises}
           handleSubmit={handleSubmit}
           handleChange={handleChange}
-          cancelPath={'/randomize'}
+          /* cancelPath={'/randomize'} */
         />
       </div>
       <div>
