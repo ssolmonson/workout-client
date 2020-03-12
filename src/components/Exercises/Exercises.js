@@ -29,9 +29,9 @@ const Exercises = (props, { match }) => {
         </ul>
       </div>
       <div>
-        <button>
-          <Link to='/exercises-create'>Create an Exercise</Link>
-        </button>
+        <Link to='/exercises-create'>
+          <button>Create an Exercise</button>
+        </Link>
       </div>
     </div>
   )

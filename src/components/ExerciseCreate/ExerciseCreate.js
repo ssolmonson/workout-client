@@ -38,11 +38,12 @@ const ExerciseCreate = props => {
 
   return (
     <div>
+      <h4>Create an Exercise</h4>
       <ExerciseForm
         exercise={exercise}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
-        cancelPath='/'
+        cancelPath='/exercises'
       />
     </div>
   )
