@@ -41,6 +41,10 @@ const Workout = props => {
   }
 
   if (deleted) {
+    props.msgAlert({
+      heading: 'Workout Deleted',
+      variant: 'danger'
+    })
     return <Redirect to={
       { pathname: '/workouts', state: { msg: 'Workout deleted successfully!' } }
     } />

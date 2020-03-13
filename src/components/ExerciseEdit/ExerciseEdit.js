@@ -4,6 +4,7 @@ import axios from 'axios'
 
 import apiUrl from '../../apiConfig'
 import ExerciseForm from '../ExerciseForm/ExerciseForm'
+// import messages from '../AutoDismissAlert/messages'
 
 const ExerciseEdit = props => {
   const [exercise, setExercise] = useState({ title: '', description: '', category: '' })
@@ -43,6 +44,10 @@ const ExerciseEdit = props => {
   }
 
   if (updated) {
+    props.msgAlert({
+      heading: 'Exercise Updated!',
+      variant: 'success'
+    })
     return <Redirect to={`/exercises/${props.match.params.id}`} />
   }
 

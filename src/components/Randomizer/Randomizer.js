@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-// import { Link } from 'react-router-dom'
+// import { Redirect } from 'react-router-dom'
 
 import axios from 'axios'
 
@@ -7,6 +7,7 @@ import apiUrl from '../../apiConfig'
 import RandomizeForm from './RandomizeForm'
 // import TrainingForm from '../Trainings/TrainingForm'
 import WorkoutForm from '../Workouts/WorkoutForm'
+import messages from '../AutoDismissAlert/messages'
 
 const Randomizer = props => {
   // define const to be used
@@ -17,8 +18,10 @@ const Randomizer = props => {
 
   const [workout, setWorkout] = useState({ workout_date: '2020-01-01' })
 
-  // const [workoutId, setWorkoutId] = useState(null)
+  // const [workoutCreated, setWorkoutCreated] = useState(false)
 
+  // const [workoutId, setWorkoutId] = useState(null)
+  // console.log(props)
   // const exerciseId = []
 
   // const []
@@ -83,6 +86,12 @@ const Randomizer = props => {
         })
         return Promise.all(ajaxArray)
       })
+      // .then(() => setWorkoutCreated(true))
+      .then(() => props.msgAlert({
+        heading: 'Workout Saved!',
+        message: messages.workoutCreatedSuccess,
+        variant: 'success'
+      }))
     // use the workout id and the exercise to POST trainings
       // .then(axios({
       //   url: `${apiUrl}/trainings`,
@@ -120,6 +129,12 @@ const Randomizer = props => {
       {/* <TrainingForm /> */}
     </li>
   ))
+
+  // if (workoutCreated) {
+  //   return <Redirect to={
+  //     { pathname: '/workouts', state: { props.msgAlert({messages.workoutCreatedSuccess}) } }
+  //   } />
+  // }
 
   return (
     <div>

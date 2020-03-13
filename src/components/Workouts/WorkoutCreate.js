@@ -33,6 +33,10 @@ const WorkoutCreate = props => {
   }
 
   if (createdWorkoutId) {
+    props.msgAlert({
+      heading: 'Workout Created!',
+      variant: 'success'
+    })
     return <Redirect to={`workouts/${createdWorkoutId}`} />
   }
 

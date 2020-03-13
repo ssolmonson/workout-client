@@ -39,6 +39,10 @@ const Exercise = props => {
   }
 
   if (deleted) {
+    props.msgAlert({
+      heading: 'Exercise Deleted',
+      variant: 'danger'
+    })
     return <Redirect to={
       { pathname: '/exercises', state: { msg: 'Exercise deleted successfully!' } }
     } />

@@ -4,6 +4,7 @@ import axios from 'axios'
 
 import apiUrl from '../../apiConfig'
 import ExerciseForm from '../ExerciseForm/ExerciseForm'
+import messages from '../AutoDismissAlert/messages'
 
 // Utilizing the Exercise Form, this will handle sending a POST request to create a Exercise
 const ExerciseCreate = props => {
@@ -33,7 +34,14 @@ const ExerciseCreate = props => {
   }
 
   if (createdExerciseId) {
-    return <Redirect to={`exercises/${createdExerciseId}`} />
+    props.msgAlert({
+      heading: 'Exercise Created!',
+      message: messages.exerciseCreatedSuccess,
+      variant: 'success'
+    })
+    return <Redirect to={
+      { pathname: `exercises/${createdExerciseId}`, state: { msg: 'Exercise created!' } }
+    } />
   }
 
   return (
