@@ -36,14 +36,13 @@ const Workouts = props => {
       {/* }<p>{workout.workout_date}</p> */}
       {workout.exercises.map(exercise => (
         <div key={exercise.id}>{exercise.title}</div>
-      ))}
-      <p></p>
+      ))}<br />
     </li>
   ))
 
   return (
-    <div>
-      <div>
+    <div className="row">
+      <div className="col-sm-10 col-md-8 mx-auto mt-5">
         <h4>Workouts</h4>
         <ul>
           {workoutsJsx}

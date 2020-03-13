@@ -16,6 +16,7 @@ import Randomizer from '../Randomizer/Randomizer'
 import Workouts from '../Workouts/Workouts'
 import WorkoutCreate from '../Workouts/WorkoutCreate'
 import Workout from '../Workouts/Workout'
+import Home from '../Home/Home'
 
 class App extends Component {
   constructor () {
@@ -50,6 +51,9 @@ class App extends Component {
           />
         ))}
         <main className="container">
+          <Route exact path='/' render={() => (
+            <Home msgAlert={this.msgAlert} setUser={this.setUser} />
+          )} />
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
