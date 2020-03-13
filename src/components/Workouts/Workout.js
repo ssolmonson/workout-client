@@ -21,7 +21,12 @@ const Workout = props => {
       }
     })
       .then(res => setWorkout(res.data.workout))
-      .catch(console.error)
+      .catch(error => {
+        props.msgAlert({
+          heading: 'Failed to load workout: ' + error.message,
+          variant: 'danger'
+        })
+      })
   }, [])
 
   const destroy = () => {
@@ -33,7 +38,12 @@ const Workout = props => {
       }
     })
       .then(() => setDeleted(true))
-      .catch(console.error)
+      .catch(error => {
+        props.msgAlert({
+          heading: 'Failed to delete workout: ' + error.message,
+          variant: 'danger'
+        })
+      })
   }
 
   if (!workout) {

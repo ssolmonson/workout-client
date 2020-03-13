@@ -29,7 +29,12 @@ const WorkoutCreate = props => {
       data: { workout }
     })
       .then(res => setCreatedWorkoutId(res.data.workout.id))
-      .catch(console.error)
+      .catch(error => {
+        props.msgAlert({
+          heading: 'Failed to create workout: ' + error.message,
+          variant: 'danger'
+        })
+      })
   }
 
   if (createdWorkoutId) {

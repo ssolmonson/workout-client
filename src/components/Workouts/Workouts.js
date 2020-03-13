@@ -19,7 +19,12 @@ const Workouts = props => {
     })
       // .then(res => console.log(res.data.workouts))
       .then(res => setWorkouts(res.data.workouts))
-      .catch(console.error)
+      .catch(error => {
+        props.msgAlert({
+          heading: 'Failed to load workouts: ' + error.message,
+          variant: 'danger'
+        })
+      })
   }, [])
   // const exerciseTitle = workouts.map(workout => (
   //   <p key ={workout.id}>{workout.exercises.title}</p>

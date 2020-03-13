@@ -49,7 +49,12 @@ const Randomizer = props => {
       }
     })
       .then(res => setExercises(res.data.exercises))
-      .catch(console.error)
+      .catch(error => {
+        props.msgAlert({
+          heading: 'Failed to create workout: ' + error.message,
+          variant: 'danger'
+        })
+      })
   }
 
   const handleCreate = event => {
@@ -101,7 +106,12 @@ const Randomizer = props => {
       //   },
       //   data: { workoutId, exerciseId }
       // }))
-      .catch(console.error)
+      .catch(error => {
+        props.msgAlert({
+          heading: 'Failed to save workout: ' + error.message,
+          variant: 'danger'
+        })
+      })
   }
 
   const handleWorkChange = event => {

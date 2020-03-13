@@ -30,7 +30,12 @@ const ExerciseCreate = props => {
       data: { exercise }
     })
       .then(res => setCreatedExerciseId(res.data.exercise.id))
-      .catch(console.error)
+      .catch(error => {
+        props.msgAlert({
+          heading: 'Failed to create exercise: ' + error.message,
+          variant: 'danger'
+        })
+      })
   }
 
   if (createdExerciseId) {

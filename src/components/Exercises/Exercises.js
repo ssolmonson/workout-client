@@ -11,7 +11,12 @@ const Exercises = (props, { match }) => {
   useEffect(() => {
     axios(`${apiUrl}/exercises`)
       .then(res => setExercises(res.data.exercises))
-      .catch(console.error)
+      .catch(error => {
+        props.msgAlert({
+          heading: 'Failed to load exercises: ' + error.message,
+          variant: 'danger'
+        })
+      })
   }, [])
 
   const exercisesJsx = exercises.map(exercise => (

@@ -19,7 +19,12 @@ const ExerciseEdit = props => {
       }
     })
       .then(res => setExercise(res.data.exercise))
-      .catch(console.error)
+      .catch(error => {
+        props.msgAlert({
+          heading: 'Failed to load exercise: ' + error.message,
+          variant: 'danger'
+        })
+      })
   }, [])
 
   const handleChange = event => {
@@ -40,7 +45,12 @@ const ExerciseEdit = props => {
       data: { exercise }
     })
       .then(res => setUpdated(true))
-      .catch(console.error)
+      .catch(error => {
+        props.msgAlert({
+          heading: 'Failed to edit exercise: ' + error.message,
+          variant: 'danger'
+        })
+      })
   }
 
   if (updated) {
